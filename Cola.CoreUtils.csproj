@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageReadmeFile>./readme.md</PackageReadmeFile>
+        <Title>Cola.CoreUtils</Title>
+        <Authors>OdinSam</Authors>
+        <Description>Cola.CoreUtils 扩展组件</Description>
+        <PackageProjectUrl>https://github.com/odinGitGmail/Cola.CoreUtils</PackageProjectUrl>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/odinGitGmail/Cola.CoreUtils</RepositoryUrl>
+        <PackageTags>Cola.CoreUtils;Cola</PackageTags>
+        <Copyright>copyRight © 2023 OdinSam</Copyright>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <FileVersion>1.0.1</FileVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="icon.png"  Pack="true" PackagePath="\" />
+        <EmbeddedResource Include="icon.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="readme.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Mapster" Version="7.4.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <Exec Command="dotnet restore" />
+    </Target>
+</Project>
