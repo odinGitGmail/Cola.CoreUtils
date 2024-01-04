@@ -1,6 +1,6 @@
 {
   "name": "cola.coreutils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cola.CoreUtils",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,6 @@
   "bugs": {
     "url": "https://github.com/odinGitGmail/Cola.Core.Utils/issues"
   },
-  "homepage": "https://github.com/odinGitGmail/Cola.Core.Utils#readme",
   "homepage": "https://github.com/odinGitGmail/Cola.Core#readme",
   "devDependencies": {
     "better-than-before": "^1.0.0",
