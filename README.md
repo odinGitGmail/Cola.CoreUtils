@@ -1,2 +1,2 @@
-# Cola.Core.Utils
+# Cola.CoreUtils
 Cola.Core.Utils
