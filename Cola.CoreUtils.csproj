@@ -15,6 +15,7 @@
         <Copyright>copyRight © 2023 OdinSam</Copyright>
         <AssemblyVersion>1.0.1</AssemblyVersion>
         <FileVersion>1.0.1</FileVersion>
+        <Version>1.0.1</Version>
     </PropertyGroup>
     <ItemGroup>
         <None Include="icon.png"  Pack="true" PackagePath="\" />
