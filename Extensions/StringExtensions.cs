@@ -20,7 +20,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="str">string</param>
     /// <returns></returns>
-    public static int ToInt(this string str)
+    public static int StringToInt(this string str)
     {
         return Convert.ToInt32(str);
     }
@@ -497,7 +497,7 @@ public static class StringExtensions
     /// <param name="salt"></param>
     /// <param name="length"></param>
     /// <returns></returns>
-    public static string ToMd5Lower(this string str, string? salt = null, int length = 32)
+    public static string StringToMd5Lower(this string str, string? salt = null, int length = 32)
     {
         var md5 = MD5.Create();
         var bt = md5.ComputeHash(Encoding.UTF8.GetBytes(str + (salt.StringIsNullOrEmpty() ? "" : salt)));
@@ -519,7 +519,7 @@ public static class StringExtensions
     /// <returns></returns>
     public static string ToMd5Lower2(this string str, string? salt = null, int length = 32)
     {
-        return str.ToMd5Lower(salt).ToMd5Lower();
+        return str.StringToMd5Lower(salt).StringToMd5Lower();
     }
 
     /// <summary>

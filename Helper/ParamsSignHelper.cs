@@ -103,7 +103,7 @@ public class ParamsSignHelper
 
         var urlP = ToUrl();
         var urlPsign = $"{urlP}&sign={signKey}";
-        var sign = urlPsign.ToMd5Lower();
+        var sign = urlPsign.StringToMd5Lower();
         urlPsign = urlPsign.Replace(signKey, sign);
         return urlPsign;
     }
@@ -134,7 +134,7 @@ public class ParamsSignHelper
 
         var urlP = ToUrl();
         var urlPsign = $"{urlP}&sign={signKey}";
-        var newSign = urlPsign.ToMd5Lower();
+        var newSign = urlPsign.StringToMd5Lower();
         return newSign == oldSign;
     }
 
@@ -158,7 +158,7 @@ public class ParamsSignHelper
                 oldSign = item.Value.ToString();
         var urlP = ToUrl();
         var urlPsign = $"{urlP}&sign={signKey}";
-        var newSign = urlPsign.ToMd5Lower();
+        var newSign = urlPsign.StringToMd5Lower();
         return newSign == oldSign;
     }
 }
