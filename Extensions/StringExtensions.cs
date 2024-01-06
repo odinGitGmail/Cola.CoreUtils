@@ -45,6 +45,16 @@ public static class StringExtensions
     {
         return string.IsNullOrEmpty(str);
     }
+    
+    /// <summary>
+    ///     Indicates whether the specified string is not null or an empty string ("").
+    /// </summary>
+    /// <param name="str">The string to test</param>
+    /// <returns>false if the value parameter is null or an empty string (""); otherwise, true.</returns>
+    public static bool StringIsNotNullOrEmpty(this string? str)
+    {
+        return !string.IsNullOrEmpty(str);
+    }
 
     /// <summary>
     /// convert string to decimal
