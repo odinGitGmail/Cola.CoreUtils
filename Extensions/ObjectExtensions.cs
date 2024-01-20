@@ -18,27 +18,10 @@ public static class ObjectExtensions
     /// <param name="encoder">字符编码</param>
     /// <typeparam name="T">泛型类型</typeparam>
     /// <returns>Dictionary&lt;string, string&gt;类型</returns>
-    public static Dictionary<string, string?> ConvertObjectToDictionary<T>(this T obj, Encoding? encoder = null)
+    public static Dictionary<string, string?> ConvertObjectToDictionary<T>(this T obj)
         where T : class
     {
-        var dic = new Dictionary<string, string?>();
-        if (typeof(T) == typeof(string))
-            foreach (var item in obj.ToString()?.Split('&')!)
-                dic.Add(
-                    item.Split('=')[0],
-                    encoder == null || Equals(encoder, Encoding.UTF8)
-                        ? item.Split('=')[1]
-                        : item.Split('=')[1].ConvertStringEncode(Encoding.UTF8, encoder)
-                );
-        else
-            foreach (var item in obj.GetType().GetRuntimeProperties())
-                dic.Add(item.Name,
-                    encoder == null || Equals(encoder, Encoding.UTF8)
-                        ? item.GetValue(obj)?.ToString()
-                        : item.GetValue(obj)?.ToString().ConvertStringEncode(Encoding.UTF8, encoder)
-                );
-
-        return dic;
+        return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(obj))!;
     }
 
     /// <summary>

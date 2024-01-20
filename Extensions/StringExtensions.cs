@@ -24,6 +24,25 @@ public static class StringExtensions
     {
         return Convert.ToInt32(str);
     }
+    
+    /// <summary>
+    ///     转换 string a=x&b=x 为 Dictionary&lt;string, string&gt;类型
+    /// </summary>
+    /// <param name="obj">泛型对象</param>
+    /// <param name="encoder">字符编码</param>
+    /// <returns>Dictionary&lt;string, string&gt;类型</returns>
+    public static Dictionary<string, string?> ConvertStringToDictionary(this string obj, Encoding? encoder = null)
+    {
+        var dic = new Dictionary<string, string?>();
+        foreach (var item in obj.ToString()?.Split('&')!)
+            dic.Add(
+                item.Split('=')[0],
+                encoder == null || Equals(encoder, Encoding.UTF8)
+                    ? item.Split('=')[1]
+                    : item.Split('=')[1].ConvertStringEncode(Encoding.UTF8, encoder)
+            );
+        return dic;
+    }
 
     /// <summary>
     ///     compare string ignore case
