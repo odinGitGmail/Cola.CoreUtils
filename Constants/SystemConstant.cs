@@ -136,7 +136,12 @@ public class SystemConstant
     #endregion
 
     #endregion
-    
+
+    #region nacos 配置
+
+    public const string CONSTANT_COLANACOS_SECTION = "ColaNacos";
+
+    #endregion
 
     #endregion
 }
