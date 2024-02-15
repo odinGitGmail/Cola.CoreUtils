@@ -12,14 +12,22 @@ namespace Cola.CoreUtils.Extensions;
 public static class ObjectExtensions
 {
     /// <summary>
+    /// ConvertObjectToQueryString
+    /// </summary>
+    /// <param name="obj">obj</param>
+    /// <returns>QueryString</returns>
+    public static string ConvertObjectToQueryString(this Object obj)
+    {
+        var dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(obj));
+        return dic!.ConvertDictionaryToQueryString();
+    }
+    
+    /// <summary>
     ///     转换 对象 为 Dictionary&lt;string, string&gt;类型
     /// </summary>
     /// <param name="obj">泛型对象</param>
-    /// <param name="encoder">字符编码</param>
-    /// <typeparam name="T">泛型类型</typeparam>
     /// <returns>Dictionary&lt;string, string&gt;类型</returns>
-    public static Dictionary<string, string?> ConvertObjectToDictionary<T>(this T obj)
-        where T : class
+    public static Dictionary<string, string?> ConvertObjectToDictionary(this Object obj)
     {
         return JsonConvert.DeserializeObject<Dictionary<string, string>>(JsonConvert.SerializeObject(obj))!;
     }
