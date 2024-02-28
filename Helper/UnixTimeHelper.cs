@@ -26,9 +26,9 @@ public class UnixTimeHelper
     /// <returns>C#格式时间</returns>  
     public static DateTime GetDateTime(string timeStamp)
     {
-        DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(BaseTime);
-        long lTime = long.Parse(timeStamp + "0000000");
-        TimeSpan toNow = new TimeSpan(lTime);
+        var dtStart = TimeZoneInfo.ConvertTime(BaseTime,TimeZoneInfo.Local);
+        var lTime = long.Parse(timeStamp + "0000000");
+        var toNow = new TimeSpan(lTime);
         return dtStart.Add(toNow);
     }
 
